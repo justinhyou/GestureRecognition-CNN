@@ -1,6 +1,7 @@
 # Create folders for each gesture
 import argparse
 import os
+import random
 
 # Create argument parser
 parser = argparse.ArgumentParser(description="Give the frame directory and transcription directories.")
@@ -16,17 +17,21 @@ dest = args.dest
 
 # Create an output training folder
 os.mkdir(os.path.join(dest, "training"))
-dest += "/training/"
+training_path = dest + "/training/"
+
+# Create an output validation folder
+os.mkdir(os.path.join(dest, "validation"))
+validation_path = dest + "/validation/"
 
 # Create a subfolder for each gesture
 # There are 15 gestures, plus a label for no gesture present
 for i in range(11):
     gesture_folder_name = "G" + str(i+1)
-    os.mkdir(os.path.join(dest, gesture_folder_name))
-os.mkdir(os.path.join(dest, "G12")) 
+    os.mkdir(os.path.join(training_path, gesture_folder_name))
+    os.mkdir(os.path.join(validation_path, gesture_folder_name))
 
 print("Done creating folders for each gesture")
-print("Begin copying frames to these folders")
+print("Begin copying frames to these folders...")
 
 # Go through all video folders in the frame directory
 for folder in os.listdir(frame_path):
@@ -38,7 +43,7 @@ for folder in os.listdir(frame_path):
         subject = folder[0]
         trial_num = folder[3]
 
-        trans_file_path = trans_path
+        trans_file_path = trans_path+'/'
         # Locate the corresponding transcription file
         for root, dirs, files in os.walk(trans_path):
             for file in files:
@@ -66,10 +71,11 @@ for folder in os.listdir(frame_path):
             ref += [(begin_frame, end_frame, gesture_label)]
 
         print("Finished processing transcription file for " + folder)
+        print("Begin copying frames to training and validation folders...")
 
         # Find the gesture for each frame in the directory and move to
         #  the appropriate training subfolder
-        for frame in os.listdir(frame_path + folder):            
+        for frame in os.listdir(frame_path+'/'+folder):            
             # Look for label of frame in transcription folder
             frame_num = int(frame[7:11])
 
@@ -79,12 +85,23 @@ for folder in os.listdir(frame_path):
                 if (r[0] <= frame_num) and (frame_num <= r[1]):
                     frame_label = r[2]
                     break
-            
-            # Copy the frame to the appropriate subfolder in training
-            #  given its label
-            path_to_current_frame = frame_path + folder + "/" + frame
-            subfolder_name = dest + frame_label + "/"
-            os.system("cp " + path_to_current_frame + " " + subfolder_name)
-    
+
+            # For now, toss all unlabelled frames
+            if not (frame_label == "G12"):
+                # Randomly decide whether data point will be put in training data
+                #  or validation data. Currently randomized by frame (alternatively,
+                #  we could randomize by surgeon or surgery)
+                t_or_v = random.uniform(0.0,1.0)
+
+                path_to_current_frame = frame_path+ "/" + folder + "/" + frame
+                # Currently, 80-20 for training to validation
+                if (t_or_v <= 0.8):
+                    # Copy the frame to the appropriate subfolder in training
+                    #  given its label
+                    subfolder_name = training_path + "/"+ frame_label + "/"
+                    os.system("cp " + path_to_current_frame + " " + subfolder_name)
+                else:
+                    subfolder_name = validation_path+ "/" + frame_label + "/"
+                    os.system("cp " + path_to_current_frame + " " + subfolder_name)    
 
 
