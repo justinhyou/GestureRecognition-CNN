@@ -1,22 +1,4 @@
-"""
-Author: Abner Ayala-Acevedo
 
-Dataset: Kaggle Dataset Dogs vs Cats
-https://www.kaggle.com/c/dogs-vs-cats/data
-- test folder unlabelled data
-
-Example: Dogs vs Cats (Directory Structure)
-test_dir/
-    test/
-        001.jpg
-        002.jpg
-        ...
-        cat001.jpg
-        cat002.jpg
-        ...
-
-If you need using a multi-class classification model change binary_cross_entropy to categorical_cross_entropy
-"""
 
 import sys
 import os
