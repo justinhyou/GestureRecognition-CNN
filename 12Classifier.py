@@ -23,7 +23,6 @@ learn_rate = 1e-4  # sgd learning rate
 momentum = .9  # sgd momentum to avoid local minimum
 transformation_ratio = .05  # how aggressive will be the data augmentation/transformation
 
-
 def train(train_data_dir, validation_data_dir, model_path):
     # Pre-Trained CNN Model using imagenet dataset for pre-trained weights
     base_model = Xception(input_shape=(img_width, img_height, 3), weights='imagenet', include_top=False)
