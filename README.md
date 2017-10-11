@@ -9,6 +9,8 @@ This project was built using Ubuntu 16.10, Ananconda, Keras, and Tensorflow. The
 3. Clone Environment: (CPU): `conda env create -f cpu-environment.yml`
 3. Clone Environment: (GPU): `conda env create -f gpu-environment.yml`
 
+For own dataset, make sure your files are in ../data/ with two folders (/validation/ and /test/) where each contains folders for each class to be clasified (i.e. /data/validation/some_class/some_image.jpg).
+
 ## Code:
 The code contains two training model, and one classification output.
 1. fine_tune.py: used to train CNN to classify between dogs vs. cats.
