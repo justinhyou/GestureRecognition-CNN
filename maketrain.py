@@ -16,8 +16,8 @@ trans_path = args.trans_path
 dest = args.dest
 
 # Create an output training folder
-os.mkdir(os.path.join(dest, "training"))
-training_path = dest + "/training/"
+os.mkdir(os.path.join(dest, "train"))
+training_path = dest + "/train/"
 
 # Create an output validation folder
 os.mkdir(os.path.join(dest, "validation"))
