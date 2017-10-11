@@ -14,7 +14,7 @@ np.random.seed(seed=seed)
 tf.set_random_seed(seed=seed)
 
 # hyper parameters for model
-nb_classes = 11  # number of classes
+nb_classes = 10  # number of classes
 based_model_last_block_layer_number = 126  # value is based on based model selected.
 img_width, img_height = 640, 480  # change based on the shape/structure of your images
 batch_size = 32  # try 4, 8, 16, 32, 64, 128, 256 dependent on CPU/GPU memory capacity (powers of 2 values).
