@@ -12,6 +12,23 @@ This project was built using Ubuntu 16.04, Ananconda, Keras, and Tensorflow. The
 
 *For own dataset, make sure your files are in ../data/ with two folders (/validation/ and /test/) where each contains folders for each class to be clasified (i.e. /data/validation/some_class/some_image.jpg).
 
+
+### Data Preparation 
+Set the environment variable DATA_HOME to the directory where your data folder lives
+
+(Optional) Create downsampled, square image pickle files using make_dataset.py
+1. Place all of your images in a folder within your DATA_HOME directory. 
+2. Open ```make_dataset.py``` and set USER_KEY in the user configurables section to a function object that takes a filename as input and returns an interger that allows the files to be sorted chronologically.
+3. Run make_dataset.py, and use the flags to specify options. The ```--help``` flag displays parameter options. Set the following flags:
+    - ```--image_size```: the desried downsampled image size, in pixels x pixels
+    - ```--image_channels```: dimension of the origigonal image. 3 for RGB images, 1 for greyscale
+    - ```--pickle_prefix```: the range of pixels values, 0 - PIXEL_DEPTH. Standard: 255
+    - ```--file_chunk```: number of image files per pickle file. If you choose a large IMAGE_SIZE, you may have to choose a smaller FILE_CHUNK
+    - ```--pickle_path```: where you want to store the resulting pickle files
+    - ```--data_path```: where the image files can be found
+4. Run ``python make_dataset.py`` to create a dataset
+5. Final pickle files will be saved to the dir specified in PICKLE_PATH
+
 ## Code:
 The code contains two training model, and one classification output.
 1. fine_tune.py: used to train CNN to classify between dogs vs. cats.
