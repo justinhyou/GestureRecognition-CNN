@@ -1,15 +1,30 @@
 from PIL import Image
 import os, sys
 
-path = "~/Desktop/data/train2"
+path = "/Users/clinic1718/Desktop/data/train2/G1/"
 dirs = os.listdir( path )
 
-def resize():
+def resize(path, dirs):
     for item in dirs:
         if os.path.isfile(path+item):
             im = Image.open(path+item)
             f, e = os.path.splitext(path+item)
             imResize = im.resize((100,100), Image.ANTIALIAS)
-            imResize.save(f + ' resized.jpg', 'JPEG', quality=90)
+            imResize.save(f + '.jpg', 'JPEG', quality=90)
 
-resize()
+
+def main():
+	for i in range(1, 12):
+		if (i != 7):
+			path = "/Users/clinic1718/Desktop/data/train2/G" + str(i) + "/"
+			dirs = os.listdir( path )
+			resize(path, dirs)
+	for i in range(1, 12):
+		if (i == 7):
+			continue
+		path = "/Users/clinic1718/Desktop/data/validation2/G" + str(i) + "/"
+		dirs = os.listdir( path )
+		resize(path, dirs)		
+
+main()
+#resize()
