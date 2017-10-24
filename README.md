@@ -2,7 +2,7 @@
 Transfer Learning CNN for multi-class classification of surgical gestures based on JIGSAW dataset. 
 
 ## Requirements:
-This project was built using Ubuntu 16.04, Ananconda, Keras, and Tensorflow. The code has been tested with both CPU and GPU. 
+This project was built using Ubuntu 16.04, Ananconda, Keras, and Tensorflow. The code has been tested with both CPU and GPU. Keras 1.2.2 was used although at the time Keras 2.0.8 was available. For MacOS, Tensorflow no longer support GPU. 
 
 ## Run:
 1. Download [__Anaconda__](https://www.continuum.io/downloads)
