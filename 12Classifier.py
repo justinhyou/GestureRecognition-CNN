@@ -17,11 +17,12 @@ tf.set_random_seed(seed=seed)
 nb_classes = 10  # number of classes
 based_model_last_block_layer_number = 126  # value is based on based model selected.
 img_width, img_height = 640, 480  # change based on the shape/structure of your images
-batch_size = 32  # try 4, 8, 16, 32, 64, 128, 256 dependent on CPU/GPU memory capacity (powers of 2 values).
+batch_size =  16  # try 4, 8, 16, 32, 64, 128, 256 dependent on CPU/GPU memory capacity (powers of 2 values).
 nb_epoch = 50  # number of iteration the algorithm gets trained.
 learn_rate = 1e-4  # sgd learning rate
 momentum = .9  # sgd momentum to avoid local minimum
 transformation_ratio = .05  # how aggressive will be the data augmentation/transformation
+
 
 def train(train_data_dir, validation_data_dir, model_path):
     # Pre-Trained CNN Model using imagenet dataset for pre-trained weights
@@ -130,7 +131,8 @@ def train(train_data_dir, validation_data_dir, model_path):
                         nb_epoch=nb_epoch,
                         validation_data=validation_generator,
                         nb_val_samples=validation_generator.nb_sample,
-                        callbacks=callbacks_list)
+                        max_q_size = 1,
+			callbacks=callbacks_list)
 
     # save model
     model_json = model.to_json()
