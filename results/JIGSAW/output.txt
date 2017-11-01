@@ -1,3 +1,8 @@
+Using TensorFlow backend.
+2017-10-24 14:34:26.634422: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-24 14:34:26.634448: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-24 14:34:26.634453: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-24 14:34:26.634471: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
 ____________________________________________________________________________________________________
 Layer (type)                     Output Shape          Param #     Connected to                     
 ====================================================================================================
@@ -414,3 +419,54 @@ Epoch 30/50
 Epoch 31/50
 103255/103287 [============================>.] - ETA: 3s - loss: 0.1760 - acc: 0.9323Epoch 00030: val_acc improved from 0.95332 to 0.95506, saving model to /Users/clinic1718/Desktop/FramesExecution/model/10Classifier/model_weights.h5
 103287/103287 [==============================] - 14622s - loss: 0.1760 - acc: 0.9323 - val_loss: 0.1452 - val_acc: 0.9551
+Epoch 32/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1735 - acc: 0.9325Epoch 00031: val_acc did not improve
+103287/103287 [==============================] - 14608s - loss: 0.1735 - acc: 0.9325 - val_loss: 0.1408 - val_acc: 0.9549
+Epoch 33/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1699 - acc: 0.9354Epoch 00032: val_acc improved from 0.95506 to 0.95653, saving model to /Users/clinic1718/Desktop/FramesExecution/model/10Classifier/model_weights.h5
+103287/103287 [==============================] - 14638s - loss: 0.1699 - acc: 0.9354 - val_loss: 0.1388 - val_acc: 0.9565
+Epoch 34/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1667 - acc: 0.9356Epoch 00033: val_acc did not improve
+103287/103287 [==============================] - 14633s - loss: 0.1668 - acc: 0.9356 - val_loss: 0.1437 - val_acc: 0.9527
+Epoch 35/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1680 - acc: 0.9355Epoch 00034: val_acc did not improve
+103287/103287 [==============================] - 14643s - loss: 0.1679 - acc: 0.9355 - val_loss: 0.1474 - val_acc: 0.9548
+Epoch 36/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1627 - acc: 0.9372Epoch 00035: val_acc improved from 0.95653 to 0.95661, saving model to /Users/clinic1718/Desktop/FramesExecution/model/10Classifier/model_weights.h5
+103287/103287 [==============================] - 14643s - loss: 0.1626 - acc: 0.9372 - val_loss: 0.1450 - val_acc: 0.9566
+Epoch 37/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1613 - acc: 0.9376Epoch 00036: val_acc did not improve
+103287/103287 [==============================] - 14599s - loss: 0.1613 - acc: 0.9376 - val_loss: 0.1381 - val_acc: 0.9532
+Epoch 38/50
+100864/103287 [============================>.] - ETA: 282s - loss: 0.1583 - acc: 0.9393  
+100896/103287 [============================>.] - ETA: 278s - loss: 0.1583 - acc: 0.9393
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1585 - acc: 0.9392Epoch 00037: val_acc did not improve
+103287/103287 [==============================] - 14637s - loss: 0.1585 - acc: 0.9392 - val_loss: 0.1355 - val_acc: 0.9556
+Epoch 39/50
+  8512/103287 [=>............................] - ETA: 10983s - loss: 0.1586 - acc: 0.9401
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1586 - acc: 0.9395Epoch 00038: val_acc improved from 0.95661 to 0.95823, saving model to /Users/clinic1718/Desktop/FramesExecution/model/10Classifier/model_weights.h5
+103287/103287 [==============================] - 14532s - loss: 0.1586 - acc: 0.9395 - val_loss: 0.1287 - val_acc: 0.9582
+Epoch 40/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1567 - acc: 0.9394Epoch 00039: val_acc did not improve
+103287/103287 [==============================] - 14648s - loss: 0.1566 - acc: 0.9394 - val_loss: 0.1493 - val_acc: 0.9543
+Epoch 41/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1533 - acc: 0.9405Epoch 00040: val_acc improved from 0.95823 to 0.96059, saving model to /Users/clinic1718/Desktop/FramesExecution/model/10Classifier/model_weights.h5
+103287/103287 [==============================] - 14664s - loss: 0.1534 - acc: 0.9405 - val_loss: 0.1217 - val_acc: 0.9606
+Epoch 42/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1519 - acc: 0.9412Epoch 00041: val_acc did not improve
+103287/103287 [==============================] - 14647s - loss: 0.1519 - acc: 0.9412 - val_loss: 0.1265 - val_acc: 0.9597
+Epoch 43/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1490 - acc: 0.9430Epoch 00042: val_acc did not improve
+103287/103287 [==============================] - 14609s - loss: 0.1490 - acc: 0.9430 - val_loss: 0.1392 - val_acc: 0.9587
+Epoch 44/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1503 - acc: 0.9422Epoch 00043: val_acc did not improve
+103287/103287 [==============================] - 14572s - loss: 0.1504 - acc: 0.9421 - val_loss: 0.1335 - val_acc: 0.9583
+Epoch 45/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1484 - acc: 0.9430Epoch 00044: val_acc did not improve
+103287/103287 [==============================] - 14607s - loss: 0.1485 - acc: 0.9430 - val_loss: 0.1317 - val_acc: 0.9593
+Epoch 46/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1453 - acc: 0.9440Epoch 00045: val_acc did not improve
+103287/103287 [==============================] - 14642s - loss: 0.1453 - acc: 0.9440 - val_loss: 0.1313 - val_acc: 0.9588
+Epoch 47/50
+103255/103287 [============================>.] - ETA: 3s - loss: 0.1450 - acc: 0.9446Epoch 00046: val_acc improved from 0.96059 to 0.96260, saving model to /Users/clinic1718/Desktop/FramesExecution/model/10Classifier/model_weights.h5
+103287/103287 [==============================] - 14640s - loss: 0.1450 - acc: 0.9446 - val_loss: 0.1254 - val_acc: 0.9626
