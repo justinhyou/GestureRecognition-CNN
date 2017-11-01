@@ -2,8 +2,18 @@ import numpy as np
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import itertools
-classes = np.array([1,2])
-cm = np.array(([1,2],[0,1]))
+
+classes = np.array([1, 2, 3, 4, 5, 6, 8, 9, 10, 11])
+cm = np.array((	[1, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+				[0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 
+				[0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+				[0, 0, 0, 1, 0, 0, 0, 0, 0, 0], 
+				[0, 0, 0, 0, 1, 0, 0, 0, 0, 0], 
+				[0, 0, 0, 0, 0, 1, 0, 0, 0, 0], 
+				[0, 0, 0, 0, 0, 0, 1, 0, 0, 0], 
+				[0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 
+				[0, 0, 0, 0, 0, 0, 0, 0, 1, 0], 
+				[0, 0, 0, 0, 0, 0, 0, 0, 0, 1]))
 plt.figure()
 plt.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
 plt.colorbar()
