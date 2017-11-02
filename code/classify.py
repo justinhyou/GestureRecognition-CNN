@@ -51,7 +51,9 @@ def classify(trained_model_dir, test_data_dir, results_path):
     # save results as a csv file in the specified results directory
     with open(os.path.join(results_path, results_name), 'w') as file:
         writer = csv.writer(file)
-        writer.writerow(('id', 'class0_prob', 'class1_prob', 'label'))
+        writer.writerow(('id', 'class1_prob', 'class2_prob', 'class3_prob', 'class4_prob', \
+                        'class5_prob', 'class6_prob', 'class8_prob', 'class9_prob', \
+                        'class10_prob', 'class11_prob', 'label')) 
         writer.writerows(zip(ids, y_probabilities[:, 0], y_probabilities[:, 1], y_classes))
 
     # # semi-supervise learning: save the classified test data in their respective train class folder to increase
@@ -79,7 +81,7 @@ if __name__ == '__main__':
         results_dir = os.path.abspath(sys.argv[3])
         os.makedirs(results_dir, exist_ok=True)
 
-    classify(model_dir, test_dir, results_dir)  # train model
+    classify(model_dir, test_dir, results_dir) 
 
     # release memory
     k.clear_session()
