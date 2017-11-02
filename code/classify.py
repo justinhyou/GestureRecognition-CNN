@@ -1,5 +1,3 @@
-
-
 import sys
 import os
 import csv
@@ -18,7 +16,7 @@ np.random.seed(seed=seed)
 tf.set_random_seed(seed=seed)
 
 # parameters dependent on your dataset: modified to your example
-img_width, img_height = 299, 299  # must match the fix size of your train image sizes. 600, 150 for text_images
+img_width, img_height = 100, 100  # must match the fix size of your train image sizes. 600, 150 for text_images
 batch_size = 32  # try 4, 8, 16, 32, 64, 128, 256 dependent on CPU/GPU memory capacity (powers of 2 values).
 
 # default paths
