@@ -1,8 +1,6 @@
 from PIL import Image
 import os, sys
 
-path = "/Users/clinic1718/Desktop/data/train2/G1/"
-dirs = os.listdir( path )
 
 def resize(path, dirs):
     for item in dirs:
@@ -16,13 +14,13 @@ def resize(path, dirs):
 def main():
 	for i in range(1, 12):
 		if (i != 7):
-			path = "/Users/clinic1718/Desktop/data/train2/G" + str(i) + "/"
+			path = "/Users/clinic1718/Desktop/normFrames80/train/G" + str(i) + "/"
 			dirs = os.listdir( path )
 			resize(path, dirs)
 	for i in range(1, 12):
 		if (i == 7):
 			continue
-		path = "/Users/clinic1718/Desktop/data/validation2/G" + str(i) + "/"
+		path = "/Users/clinic1718/Desktop/normFrames80/validation/G" + str(i) + "/"
 		dirs = os.listdir( path )
 		resize(path, dirs)		
 
