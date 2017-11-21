@@ -52,18 +52,29 @@ folderDict = {
 #which each contain only image files
 
 for folder in os.listdir(pathToGestures):
-	if folder != ".DS_Store":
+	#print folder
+	if os.path.isdir(pathToGestures+ "/" + folder):
 		for file in os.listdir(pathToGestures + "/" + folder):
+			#print file, folder
 			gestureDict[file[:-4]] = folderDict[folder]
+			#print file[:-4], gestureDict[file[:-4]]
 
 #cm = [[0 for item in range(10)] for item in range(10)]
 cm = np.zeros((10, 10))
 with open(predictions) as csv:
 	csv = [line.split(",") for line in csv][1:]
+	# for row in csv:
+	# 	predict = int(row[-1])
+	# 	print gestureDict[row[0]], predict
+
+	#print gestureDict
+
 	for row in csv:
+		#print row[0]
 		true = gestureDict[row[0]]
 		predict = int(row[-1])
-		cm[predict][true] += 1
+		#cm[predict][true] += 1
+		cm[true][predict] += 1
 
 # cm = np.empty([0, 10])
 
