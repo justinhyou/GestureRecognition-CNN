@@ -14,13 +14,18 @@ pathToGestures = "/Users/clinic1718/Desktop/normFrames80/test/test_validation"
 
 gestureDict = {}
 
+# folderDict = {
+# 	"G1":0,"G2":1,"G3":2,"G4":3,"G5":4,"G6":5,"G8":6,"G9":7,"G10":8,"G11":9
+# }
+
 folderDict = {
-	"G1":0,"G2":1,"G3":2,"G4":3,"G5":4,"G6":5,"G8":6,"G9":7,"G10":8,"G11":9
+	"G1":0,"G2":3,"G3":4,"G4":5,"G5":6,"G6":7,"G8":8,"G9":9,"G10":1,"G11":2
 }
+
 #assumes the only things in pathToGestures are folders with names corresponding to gestures,
 #which each contain only image files
-
 for folder in os.listdir(pathToGestures):
+	#print folder
 	if os.path.isdir(pathToGestures+ "/" + folder):
 		for file in os.listdir(pathToGestures + "/" + folder):
 			gestureDict[file[:-4]] = folderDict[folder]
@@ -30,9 +35,10 @@ with open(predictions) as csv:
 	csv = [line.split(",") for line in csv][1:]
 
 	for row in csv:
-		true = gestureDict[row[0]]
-		predict = int(row[-1])
-		cm[true][predict] += 1
+		trueLabel = gestureDict[row[0]]
+		predictedLabel = int(row[-1])
+		cm[predictedLabel][trueLabel] += 1
+
 
 
 #normalize confusion matrix
