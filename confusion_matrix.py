@@ -10,37 +10,6 @@ predictions = os.path.abspath("/Users/clinic1718/Desktop/FramesExecution/results
 #path to test folder
 validations = os.path.abspath("/Users/clinic1718/Desktop/normFrames80/test/test_validation")
 
-#array to accumulate labels
-# talliedOrder = np.array([])
-# with open(predictions, 'r') as predictionsFile:
-# 	predictMatrix = predictionsFile.readlines()[1:]
-# 	index = 0
-# 	for row in predictMatrix:
-# 		row = row.strip()
-# 		talliedOrder = np.append(talliedOrder, int(row[-1]))
-# 		index+=1
-
-#true labels
-#correctedLabels = np.array([])
-#convert to actual labels 
-"""
-0 -> G1
-1 -> G2
-2 -> G3
-3 -> G4
-4 -> G5
-5 -> G6
-6 -> G8
-7 -> G9
-8 -> G10
-9 -> G11
-"""
-# for i in talliedOrder:
-# 	if (i<7):
-# 		correctedLabels = np.append(correctedLabels, i+1)
-# 	else:
-# 		correctedLabels = np.append(correctedLables, i+2)
-
 pathToGestures = "/Users/clinic1718/Desktop/normFrames80/test/test_validation"
 
 gestureDict = {}
@@ -52,44 +21,19 @@ folderDict = {
 #which each contain only image files
 
 for folder in os.listdir(pathToGestures):
-	#print folder
 	if os.path.isdir(pathToGestures+ "/" + folder):
 		for file in os.listdir(pathToGestures + "/" + folder):
-			#print file, folder
 			gestureDict[file[:-4]] = folderDict[folder]
-			#print file[:-4], gestureDict[file[:-4]]
 
-#cm = [[0 for item in range(10)] for item in range(10)]
 cm = np.zeros((10, 10))
 with open(predictions) as csv:
 	csv = [line.split(",") for line in csv][1:]
-	# for row in csv:
-	# 	predict = int(row[-1])
-	# 	print gestureDict[row[0]], predict
-
-	#print gestureDict
 
 	for row in csv:
-		#print row[0]
 		true = gestureDict[row[0]]
 		predict = int(row[-1])
-		#cm[predict][true] += 1
 		cm[true][predict] += 1
 
-# cm = np.empty([0, 10])
-
-# counter = 0
-# for folder in os.listdir(validations):
-# 	if folder[0] != "G":
-# 		continue
-#  	numImages = len(os.listdir(validations+"/"+folder))
-#  	temp = np.zeros(10)
-#  	for i in range(counter, counter+numImages):
-#  		label = talliedOrder[i]
-#  		temp[label] += 1
-
-#  	cm = np.vstack((cm, temp))
-#  	counter += numImages
 
 #normalize confusion matrix
 row_sums = cm.sum(axis=1)
