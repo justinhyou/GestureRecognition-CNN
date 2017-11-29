@@ -6,7 +6,7 @@ import csv
 import os
 
 #path to predictions.csv
-predictions = os.path.abspath("/Users/clinic1718/Desktop/FramesExecution/results/JIGSAW/Normalized_validation/predictions.csv")
+predictions = os.path.abspath("/Users/clinic1718/Desktop/predictions.csv")
 #path to test folder
 validations = os.path.abspath("/Users/clinic1718/Desktop/normFrames80/test/test_validation")
 
@@ -38,6 +38,7 @@ with open(predictions) as csv:
 		trueLabel = gestureDict[row[0]]
 		predictedLabel = int(row[-1])
 		cm[predictedLabel][trueLabel] += 1
+		print row[0], trueLabel, predictedLabel
 
 
 
